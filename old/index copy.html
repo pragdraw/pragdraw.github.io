@@ -1,0 +1,118 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .dropbtn {
+        background-color: rgb(220, 220, 220);
+        color: black;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        margin:5px;
+        }
+
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        }
+
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+
+        .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+        div.fixed {
+            position: fixed;
+            width: 50%;
+            bottom: 10px;
+            border: 3px solid rgb(220, 220, 220);
+        } 
+
+        div.boxed{
+            border: 3px solid white;
+        } 
+    </style>
+    <meta charset="UTF-8">
+    <script language="javascript" type="text/javascript" src="https://storage.googleapis.com/quickdraw-models/sketchRNN/models/mosquito.vae.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/p5.svg.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/numjs.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/sketch_rnn.js"></script>
+    <script language="javascript" type="text/javascript" src="index.js"></script>
+    <style> body {padding: 0; 
+        margin: 0;
+    } 
+    </style>
+</head>
+<body>
+    <div>
+        <div class="boxed">
+            <a style="margin-left: 10px;"> Speaker: </a>
+            <div class="dropdown">
+                <button class="dropbtn">cat</button>
+                <div class="dropdown-content">
+                <a href="#">desk</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">S0</button>
+                <div class="dropdown-content">
+                <a href="#">S1</a>
+                <a href="#">S2</a>
+                </div>
+            </div>
+
+            <a style="margin-left: 10px;"> Listener: </a>
+            <div class="dropdown">
+                <button class="dropbtn">cat_v_desk</button>
+                <div class="dropdown-content">
+                <a href="#">None</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">L0</button>
+                <div class="dropdown-content">
+                <a href="#">L1</a>
+                <a href="#">L2</a>
+                </div>
+            </div>
+
+            <a style="margin-left: 50px;"> </a>
+            <div class="dropdown">
+                <button class="dropbtn">Clear</button>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Draw</button>
+            </div>
+        </div>
+
+        <div class="fixed">
+            <a style="margin-left: 10px; font-size: x-large;"> Prediction: </a><a style="font-size: x-large;">99</a><a style="font-size: x-large;">% Unkown </a>
+        </div>
+    </div>
+
+    <div>
+        <div id="sketch"></div>
+    </div>
+</body>
+</html>

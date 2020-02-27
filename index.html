@@ -1,0 +1,123 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .dropbtn {
+        background-color: rgb(220, 220, 220);
+        color: black;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        margin:5px;
+        }
+
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        }
+
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+
+        .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+        div.fixed {
+            width: 50%;
+            border: 10px solid white;
+        } 
+
+        div.boxed{
+            border: 3px solid rgb(220, 220, 220);
+        } 
+    </style>
+	<meta charset="UTF-8">
+	<script language="javascript" type="text/javascript" src="https://storage.googleapis.com/quickdraw-models/sketchRNN/models/bird.gen.js"></script>
+	<script language="javascript" type="text/javascript" src="lib/p5.min.js"></script>
+	<script language="javascript" type="text/javascript" src="lib/p5.dom.min.js"></script>
+	<script language="javascript" type="text/javascript" src="lib/numjs.js"></script>
+	<script language="javascript" type="text/javascript" src="lib/sketch_rnn.js"></script>
+	<script language="javascript" type="text/javascript" src="index.js"></script>
+	<style> body {padding: 0; 
+		margin: 0;
+	} 
+</style>
+</head>
+<body>
+    <div>
+        <div class="boxed">
+            <a style="margin-left: 10px;"> Speaker: </a>
+            <div class="dropdown">
+                <button id="sclass" class="dropbtn">bicycle</button>
+                <div class="dropdown-content">
+                <a id="bird" onclick="dropdown_sclass(this.id);">bird</a>
+                <a id="bicycle" onclick="dropdown_sclass(this.id);">bicycle</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button id="stype" class="dropbtn">S0</button>
+                <div class="dropdown-content">
+                    <a id="S0" onclick="dropdown_stype(this.id);">S0</a>
+                    <a id="S1" onclick="dropdown_stype(this.id);">S1</a>
+                </div>
+            </div>
+
+            <a style="margin-left: 10px;"> Listener: </a>
+            <div class="dropdown">
+                <button id="lclass" class="dropbtn">bird_v_bicycle</button>
+                <div class="dropdown-content">
+                    <a id="cat_v_desk" onclick="dropdown_lclass(this.id);">cat_v_desk</a>
+                    <a id="bird_v_bicycle" onclick="dropdown_lclass(this.id);">bird_v_bicycle</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button id="ltype" class="dropbtn">L0</button>
+                <div class="dropdown-content">
+                    <a id="L0" onclick="dropdown_ltype(this.id);">L0</a>
+                    <a id="L1" onclick="dropdown_ltype(this.id);">L1</a>
+                </div>
+            </div>
+            
+            <a style="margin-left: 50px;"> </a>
+            <div class="dropdown">
+                <button id="set-btn" class="dropbtn" onclick="set_button_press();">Set</button>
+            </div>
+
+            <a style="margin-left: 50px;"> </a>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="clear_button_press();">Clear</button>
+            </div>
+
+            <div class="dropdown">
+                <button id="draw-btn" class="dropbtn" onclick="draw_button_press();">Draw</button>
+            </div>
+
+            <a style="margin-left: 50px;">Setting: [speaker](<a id="setting_sclass">bird</a> <a id="setting_stype">S0</a>) [listener](<a id="setting_lclass">bird_v_bicycle</a> <a id="setting_ltype">L0</a>)</a>
+        </div>
+
+        <div class="fixed">
+            <a style="margin-left: 10px; font-size: x-large;"> Prediction: </a><a style="font-size: x-large;">99</a><a style="font-size: x-large;">% Unkown </a>
+        </div>
+    </div>
+
+	<div id="sketch"></div>
+</body>
+</html>
