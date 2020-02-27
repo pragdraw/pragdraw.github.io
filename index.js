@@ -252,6 +252,8 @@ var sketch = function( p ) {
       model.set_pixel_factor(screen_scale_factor);
       encode_strokes();
       restart();
+      counter_max = 10;
+      is_restart = false;
     }
     ModelImporter.change_model(model, c, model_mode, call_back);
 
